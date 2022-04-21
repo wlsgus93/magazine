@@ -13,7 +13,7 @@ const Header = (props) => {
     const _session_key=`firebase:authUser:${apiKey}:[DEFAULT]`;
     
     const dispatch = useDispatch();
-    console.log(sessionStorage.getItem(_session_key));
+    // console.log(sessionStorage.getItem(_session_key));
 
     const is_session=sessionStorage.getItem(_session_key)?true:false;
     // const [is_login, setIsLogin]= React.useState(false);

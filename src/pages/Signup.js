@@ -18,7 +18,7 @@ const Signup = (props) => {
       window.alert("빈칸을 입력해주세요");
       return;
     }
-    id (!emailCheck(id))
+    if (!emailCheck(id))
     {
       window.alert("not email");
       return;

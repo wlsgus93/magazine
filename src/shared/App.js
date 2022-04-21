@@ -49,7 +49,7 @@ function App() {
         </ConnectedRouter>
       </Grid>
       <Permit>
-        <Button is_float text="+"/>
+        <Button _onClick={()=>{history.push("/write");}} is_float text="+"/>
       </Permit>
     </React.Fragment>
   );
