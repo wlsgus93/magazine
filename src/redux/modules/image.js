@@ -7,13 +7,16 @@ import { storage } from "../../shared/firebase";
 
 const UPLOADING="UPLOADING"; //업로드중인지 아닌지
 const UPLOAD_IMAGE="UPLOAD_IMAGE";//업로드 액션
+const SET_PREVIEW = "SET_PREVIEW"; //미리보기 사진 액션
 
 const uploading =createAction(UPLOADING,(uploading)=>({uploading}))// 액션생성자
 const uploadImage= createAction(UPLOAD_IMAGE, (image_url)=>({image_url}));
+const setPreview=createAction(SET_PREVIEW,(preview)=>({preview}));
 
 const initialState ={
 image_url:'',
 uploading:false,
+preview:null,
 }
 const uploadImageFB = (image)=>{
     return function(dispatch,getState,{history}){
@@ -45,11 +48,16 @@ export default handleActions({
     }),
     [UPLOADING]:(state,action)=>produce(state,(draft)=>{
         draft.uploading=action.payload.uploading;
-    })
+    }),
+    [SET_PREVIEW]:(state,action)=>produce(state,(draft)=>{
+        draft.preview=action.payload.preview;
+    }),
 
 }, initialState)
 
 const actionCreators ={
+    uploadImage,
     uploadImageFB,
+    setPreview,
 }
 export {actionCreators}
